@@ -1,7 +1,11 @@
 "use client"
 
-export default function Home() {
-  
+import TripSearch from "./components/TripSearch"
 
-  return 
+export default function Home() {
+  return (
+    <div>
+      <TripSearch />
+    </div>
+  )
 }

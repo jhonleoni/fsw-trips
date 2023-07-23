@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import Header from '../components/Header'
+import TripSearch from './components/TripSearch'
 
 const poppins = Poppins({ subsets: ['latin'], weight: [
   '400',
@@ -28,7 +29,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <NextAuthProvider>
           <Header />
-
+        
           {children}
         </NextAuthProvider>
       </body>
