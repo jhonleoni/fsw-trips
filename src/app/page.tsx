@@ -1,5 +1,3 @@
-"use client"
-
 import QuickSearch from "./components/QuickSearch"
 import TripSearch from "./components/TripSearch"
 import RecommendedTrips from "./components/RecommendedTrips"
