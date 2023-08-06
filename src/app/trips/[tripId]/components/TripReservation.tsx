@@ -107,6 +107,7 @@ const TripReservation = ({ tripId, maxGuests, tripStartDate, tripEndDate, priceP
               placeholderText="Data de Início"
               className="w-full"
               minDate={tripStartDate}
+              maxDate={tripEndDate}
             />
           )}
         />
@@ -129,7 +130,7 @@ const TripReservation = ({ tripId, maxGuests, tripStartDate, tripEndDate, priceP
               placeholderText="Data Final"
               className="w-full"
               maxDate={tripEndDate}
-              minDate={startDate ?? tripStartDate}
+              minDate={startDate}
             />
           )}
         />
