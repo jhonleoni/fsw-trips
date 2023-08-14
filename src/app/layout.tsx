@@ -5,6 +5,7 @@ import { Poppins } from 'next/font/google'
 import Header from '../components/Header'
 import TripSearch from './components/TripSearch'
 import Footer from '@/components/Footer'
+import ToastProvider from '@/providers/toast'
 
 const poppins = Poppins({ subsets: ['latin'], weight: [
   '400',
@@ -29,11 +30,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className}>
         <NextAuthProvider>
-          <Header />
-        
-          {children}
+          <ToastProvider>
+            <Header />
+          
+            {children}
 
-          <Footer />
+            <Footer />
+          </ToastProvider>
         </NextAuthProvider>
       </body>
     </html>
