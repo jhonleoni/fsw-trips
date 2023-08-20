@@ -18,6 +18,12 @@ const Header = () => {
     signOut();
   };
 
+  const confirmation = () => {
+    if (window.confirm("Tem certeza que deseja sair?")) {
+      handleLogoutClick();
+    }
+  };
+
   const handleMenuClick = () => setMenuIsOpen(!menuIsOpen);
 
   return (
@@ -46,7 +52,7 @@ const Header = () => {
                 <button className="text-primary pb-2 border-b border-grayLighter border-solid text-sm font-semibold">Minhas Viagens</button>
               </Link>
 
-              <button className="text-primary pt-2 text-sm font-semibold" onClick={handleLogoutClick}>
+              <button className="text-primary pt-2 text-sm font-semibold" onClick={confirmation}>
                 Logout
               </button>
             </div>

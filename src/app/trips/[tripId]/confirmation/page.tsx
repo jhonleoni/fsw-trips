@@ -74,7 +74,7 @@ const TripConfirmation = ({ params }: { params: {tripId: string } }) => {
 
   router.push("/")
 
-  toast.success("Reserva realizada com sucesso!", {position: "bottom-center"})
+  toast.success("Reserva realizada com sucesso! Acesse suas reservas no menu superior.", {position: "bottom-center"})
 }
 
   const startDate = new Date(searchParams.get("startDate") as string)

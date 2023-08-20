@@ -6,7 +6,6 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import Button from "@/components/Button";
 import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
 
 interface UserReservationItemProps {
   reservation: Prisma.TripReservationGetPayload<{
@@ -16,9 +15,10 @@ interface UserReservationItemProps {
 }
 
 const UserReservationItem = ({ reservation, fetchReservations }: UserReservationItemProps) => {
-  const router = useRouter();
 
   const { trip } = reservation;
+
+  
 
   const handleDeleteClick = async () => {
     const res = await fetch(`/api/trips/reservation/${reservation.id}`, {
@@ -32,8 +32,15 @@ const UserReservationItem = ({ reservation, fetchReservations }: UserReservation
     toast.success("Reserva cancelada com sucesso!", { position: "bottom-center" });
 
     fetchReservations();
+    location.reload();
   };
 
+  const confirmation = () => {
+      if (window.confirm("Tem certeza que deseja cancelar a reserva?")) {
+        handleDeleteClick();
+      }
+
+    }
   return (
     <div>
       {/* CARD */}
@@ -70,7 +77,7 @@ const UserReservationItem = ({ reservation, fetchReservations }: UserReservation
             <p className="font-medium text-sm">R${Number(reservation.totalPaid)}</p>
           </div>
 
-          <Button variant="danger" className="mt-5" onClick={handleDeleteClick}>
+          <Button variant="danger" className="mt-5" onClick={confirmation}>
             Cancelar
           </Button>
         </div>
